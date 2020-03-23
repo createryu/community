@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>牛柳社区</title>
@@ -34,14 +35,17 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://github.com/login/oauth/authorize?client_id=dfb81c6bd4e3a33beac6&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <li class="dropdown" th:if="${session.user}!=null">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        [[${session.user.name}]]<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">消息中心</a></li>
                         <li><a href="#">个人资料</a></li>
                         <li><a href="#">退出登录</a></li>
                     </ul>
+                </li>
+                <li th:unless="${session.user}!=null">
+                    <a href="https://github.com/login/oauth/authorize?client_id=dfb81c6bd4e3a33beac6&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
                 </li>
             </ul>
         </div>
