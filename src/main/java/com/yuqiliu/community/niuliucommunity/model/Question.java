@@ -6,18 +6,21 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author yuqiliu
- * @create 2020-03-23  8:43
+ * @create 2020-03-25  22:57
  */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Question {
     private Integer id;
-    private String account_id;
-    private String name;
-    private String token;
+    private String title;
+    private String description;
+    private String tag;
     private Long gmt_create;
     private Long gmt_modified;
-    private String avatar_url;
+    private Integer creator;
+    private Integer viewCount;
+    private Integer commentCount;
+    private Integer likeCount;
 }

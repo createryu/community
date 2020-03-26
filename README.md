@@ -15,3 +15,7 @@
 
 获取github传过来的用户登录信息，调试网址
 https://api.github.com/user?access_token=81a3f2e494538d132d1f486443762355fe7cf7e0
+
+
+设置数据库时区以连接IDEA :  
+```sqlSET GLOBAL time_zone='+8:00';```
