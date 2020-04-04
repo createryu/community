@@ -1,18 +1,19 @@
-package com.yuqiliu.community.niuliucommunity.model;
+package com.yuqiliu.community.niuliucommunity.dto;
 
+import com.yuqiliu.community.niuliucommunity.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @author yuqiliu
- * @create 2020-03-25  22:57
+ * @create 2020-03-26  21:49
  */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String description;
@@ -23,4 +24,5 @@ public class Question {
     private Integer view_count;
     private Integer comment_count;
     private Integer like_count;
+    private User user;
 }
