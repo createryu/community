@@ -19,3 +19,7 @@ https://api.github.com/user?access_token=81a3f2e494538d132d1f486443762355fe7cf7e
 
 设置数据库时区以连接IDEA :  
 ```sqlSET GLOBAL time_zone='+8:00';```
+
+
+执行mybatis-generator插件的语句:
+```mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate```

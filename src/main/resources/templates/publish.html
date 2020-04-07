@@ -5,56 +5,16 @@
     <meta charset="UTF-8">
     <title>发布 —— 牛柳社区</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/community.css">
     <!-- jquery组件 -->
-    <script src="js/jquery-3.3.1.min.js" type="application/javascript"></script>
+    <script src="/js/jquery-3.3.1.min.js" type="application/javascript"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
 </head>
 <body>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">牛柳社区</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li th:if="${session.user}!=null">
-                    <a href="/publish">发布</a>
-                </li>
-                <li class="dropdown" th:if="${session.user}!=null">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        [[${session.user.name}]]<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">消息中心</a></li>
-                        <li><a href="#">个人资料</a></li>
-                        <li><a href="#">退出登录</a></li>
-                    </ul>
-                </li>
-                <li th:unless="${session.user}!=null">
-                    <a href="https://github.com/login/oauth/authorize?client_id=dfb81c6bd4e3a33beac6&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div th:insert="navigation::nav"></div>
 
 
 <div class="container-fluid main">
@@ -63,6 +23,7 @@
             <h2 style="color: #5cb85c"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true" style="color: #5cb85c;font-size: 40px"></span>发起</h2>
             <hr/>
             <form action="/publish" method="post">
+                <input type="hidden" name="id" th:value="${id}"/>
                 <div class="form-group">
                     <h3 for="title">问题标题（简明扼要）</h3>
                     <input type="text" class="form-control" id="title" name="title" placeholder="问题标题..." th:value="${title}">

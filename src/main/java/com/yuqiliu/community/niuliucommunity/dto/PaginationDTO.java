@@ -24,25 +24,10 @@ public class PaginationDTO {
 
 
 
-    public void setPagination(Integer totalCount, Integer page, Integer size) {
+    public void setPagination(Integer totalPage, Integer page) {
 
-        if ((totalCount%size)==0)
-        {
-            totalPage=totalCount/size;
-        }
-        else
-        {
-            totalPage=(totalCount/size)+1;
-        }
+        this.totalPage=totalPage;
 
-        if (page<1)
-        {
-            page=1;
-        }
-        if (page>totalPage)
-        {
-            page=totalPage;
-        }
         this.Page=page;
 
         pages.add(page);
